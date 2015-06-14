@@ -7,7 +7,7 @@
 		<title>Intro to Angular2</title>
 
 		<meta name="description" content="Intro to Angular2">
-		<meta name="author" content="David East">
+		<meta name="author" content="Ibhi">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -67,10 +67,10 @@
 
 				<section>
 					<p>
-						<h3>David East / <a href="http://twitter.com/_davideast">@_davideast</a></h3>
+						<h3>Mohamed Ibrahim / <a href="https://github.com/ibhi">@ibhi</a></h3>
 						<p class="text-cream">
-							Full-time <span class="text-discs">Firebase</span>.
-							Part-time <span class="text-rebel">Angular</span>.
+							Full-time <span class="text-discs">Caterpillar</span>.
+							Hobbie <span class="text-rebel">Web Technologies</span>.
 						</p>
 					</p>
 				</section>
@@ -191,18 +191,19 @@
 					<p class="text-medium">Your not-so first look...</p>
 				</section>
 
-				<section title="AtScript">
+				<section title="TypeScript">
 					<p class="text-medium">Angular2</p>
 					<pre>
 					<code data-trim class="java">
 @Component({
-  selector: 'todo-app',
-  template: new TemplateConfig({
-    url: '/todos.html'
-  })
+  selector: 'todo-app'
+})
+@View({
+	//template : ` Hello {{world}} `,
+	templateUrl: '/todos.html'
 })
 class TodoApp {
-  todos;
+  todos: string[];
   constructor() {
     this.todos = ['Item1', 'Item2'];
   }
@@ -211,18 +212,18 @@ class TodoApp {
 					</pre>
 				</section>
 
-				<section title="AtScript">
-					<h2>AtScript</h2>
+				<section title="TypeScript">
+					<h3>Annotations/Decorators</h3>
 					<p class="era-point">
 						Provides syntax sugar for meta-data annotations
 					</p>
 					<pre>
 						<code data-trim class="java">
 @Component({
-  selector: 'foo',
-  template: new TemplateConfig({
-    url: '/foo.html'
-  })
+  selector: 'foo'
+})
+@View({
+  templateUrl: '/foo.html'
 })
 class Foo {
 
@@ -231,21 +232,21 @@ class Foo {
 					</pre>
 				</section>
 
-				<section title="AtScript">
-					<h2>AtScript</h2>
+				<section title="TypeScript">
+					<h2>TypeScript</h2>
 					<p class="era-point">
-						AtScript is NOT a language to replace JavaScript
+						TypeScript is NOT a language to replace JavaScript
 					</p>
 					<p class="era-point">
-						AtScript is merely syntactical sugar on top of ES6
+						TypeScript is a typed superset of JavaScript that compiles to plain JavaScript
 					</p>
 					<p class="era-point">
-						Working with TypeScript, V8, and others on proposals for TC39 standards committe.
+						Lots of ES6 awesomeness built into TypeScript
 					</p>
 				</section>
 
-				<section title="AtScript">
-					<h2>AtScript</h2>
+				<section title="TypeScript">
+					<h2>TypeScript</h2>
 					<p class="era-point">
 						Compiles to ES5
 					</p>
@@ -266,11 +267,13 @@ class Foo {
 					<p class="text-medium">Components</p>
 					<pre>
 						<code data-trim class="java">
+import {Component, View} from 'angular/angular2'
+
 @Component({
-  selector: 'todo-app',
-  template: new TemplateConfig({
-    url: '/todos.html'
-  })
+  selector: 'todo-app'
+})
+@View({
+  templateUrl: '/todos.html'
 })
 class TodoApp {
   todos;
@@ -283,14 +286,23 @@ class TodoApp {
 				</section>
 
 				<section title="Components">
+					<p class="text-small">Modules</p>
+					<pre>
+						<code data-trim class="java">
+import {Component, View} from 'angular/angular2'
+						</code>
+					</pre>
+				</section>
+
+				<section title="Components">
 					<p class="text-small">Component Annotation</p>
 					<pre>
 						<code data-trim class="java">
 @Component({
-  selector: 'todo-app',
-  template: new TemplateConfig({
-    url: '/todos.html'
-  })
+  selector: 'todo-app'
+})
+@View({
+  templateUrl: '/todos.html'
 })
 						</code>
 					</pre>
@@ -314,11 +326,13 @@ class TodoApp {
 					<p class="text-medium">Components</p>
 					<pre>
 						<code data-trim class="java">
+import {Component, View} from 'angular/angular2'
+
 @Component({
-  selector: 'todo-app',
-  template: new TemplateConfig({
-    url: '/todos.html'
-  })
+  selector: 'todo-app'
+})
+@View({
+  templateUrl: '/todos.html'
 })
 class TodoApp {
   todos;
@@ -357,7 +371,7 @@ var app = angular.module('app', []);
 					<pre>
 						<code data-trim class="javascript">
 app.controller('MyCtrl', function($scope) {
-  $scope.name = 'David';
+  $scope.name = 'Ibhi';
 });
 						</code>
 					</pre>
@@ -397,12 +411,12 @@ app.controller('MyCtrl', function($scope) {
 					<pre>
 						<code data-trim class="java">
 @Component({
-  selector: 'todo-app',
-  template: new TemplateConfig({
-    url: '/todos.html'
-  })
+  selector: 'todo-app'
 })
-export class TodoApp {
+@View({
+  templateUrl: '/todos.html'
+})
+class TodoApp {
   todos;
   constructor() {
     this.todos = ['Item1', 'Item2'];
@@ -414,7 +428,7 @@ export class TodoApp {
 					<p class="text-small">bootstrap</p>
 					<pre>
 						<code data-trim class="javascript">
-import {bootstrap} from 'angular';
+import {bootstrap} from 'angular/angular2';
 import {TodoApp} from 'todoapp';
 bootstrap(TodoApp);
 						</code>
@@ -423,11 +437,11 @@ bootstrap(TodoApp);
 				</section>
 
 				<section title="Bootstrapping">
-					<p class="text-medium">ES6/AtScript compilation</p>
+					<p class="text-medium">ES6/TypeScript compilation</p>
 					<br> <br>
-					<p class="era-point">Use Traceur (experimental options for AtScript)</p>
+					<p class="era-point">Use TypeScript@1.5.0-beta compiler</p>
+					<p class="era-point">Use Traceur for ES6</p>
 					<p class="era-point">In Browser or CLI</p>
-					<p class="era-point">Working on key-turn tooling solution</p>
 				</section>
 
 				<section title="Bootstrapping">
@@ -450,11 +464,13 @@ bootstrap(TodoApp);
 					<pre>
 						<code data-trim class="java">
 @Component({
-  selector: 'name-change',
-  template: new TemplateConfig({ url: 'name-change.html' })
+  selector: 'name-change'
+})
+@View({
+  templateUrl: '/name-change.html'
 })
 class NameChange {
-  name;
+  name: string;
   constructor() {
     this.name = '';
   }
@@ -471,7 +487,7 @@ class NameChange {
 &lt;div&gt;
   &lt;input #newname type="text"&gt;
   &lt;button (click)="changeName(newname.value)"
-          [disabled]="newname.value == 'David'"&gt; Change Name
+          [disabled]="newname.value == 'Ibhi'"&gt; Change Name
   &lt;/button&gt;
 &lt;/div&gt;
 						</code>
@@ -525,11 +541,13 @@ class NameChange {
 					<pre>
 						<code data-trim class="java">
 @Component({
-  selector: 'name-change',
-  template: new TemplateConfig({ url: 'name-change.html' })
+  selector: 'name-change'
+})
+@View({
+  templateUrl: '/name-change.html'
 })
 class NameChange {
-  name;
+  name: string;
   constructor() {
     this.name = '';
   }
@@ -546,7 +564,7 @@ class NameChange {
 &lt;div&gt;
   &lt;input #newname type="text"&gt;
   &lt;button (click)="changeName(newname.value)"
-          [disabled]="newname.value == 'David'"&gt; Change Name
+          [disabled]="newname.value == 'Ibhi'"&gt; Change Name
   &lt;/button&gt;
 &lt;/div&gt;
 						</code>
